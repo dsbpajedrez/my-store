@@ -1,0 +1,4 @@
+<img (load)="imgLoaded()" (error)="imgError()" [src]="img" *ngIf="img; else imgByDefault ">
+<ng-template #imgByDefault>
+    <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2019/05/hipertextual-avengers-endgame-futuro-capitan-america-2019781893-scaled.jpg?fit=2560%2C1600&quality=50&strip=all&ssl=1" alt="">
+</ng-template>
