@@ -9,9 +9,12 @@ export class ProductComponent {
 
   @Input() product : Product = {
     id : 0,
-    name : '',
-    precio : 0,
-    image : ''
+    category : '',
+    description: '',
+    price : 0,
+    image : '',
+    title: ''
+
   }
   @Output() addedProduct = new EventEmitter<Product>();
   onAddToCart = () => {

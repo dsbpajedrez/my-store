@@ -1,5 +1,7 @@
 <p>Total de productos: {{myShoppingCart.length}}</p>
 <p>Costo total : {{costoTotal}}</p>
+<p>Today: {{ date | date }}</p>
+<p>Cuenta regresiva: {{date | formatDistanceTime}}</p>
 <div class="products--grid">
 
     <app-product
@@ -7,4 +9,5 @@
     (addedProduct)="onAddToShoppingCart($event)"
     >    
     </app-product>
+   
 </div>
