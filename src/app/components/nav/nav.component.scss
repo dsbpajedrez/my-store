@@ -14,6 +14,7 @@
 
 }
 .menu-lateral{
+    // Primera linea fucnionalidad del menu
     position: fixed;
     top: 0;
     right: 0;
@@ -26,6 +27,23 @@
         transition: all ease-out 0.5s;
         transform: translateX(0);
     }
+    // ultima linea fucnionalidad del menu
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-start;
+    gap: 2em;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;            
+    padding:0.5em;
+}
+.close-img {
+    width: 100px;
 }
 
 .hide-mobile {
