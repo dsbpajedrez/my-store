@@ -1,3 +1,4 @@
+
 <div  class="products--grid">
     <app-product    
     *ngFor="let item of products" [product]="item"
@@ -6,12 +7,16 @@
     >    
     </app-product>   
 </div>
-<div [class.active] = "showDetail" class="product-detail">
+<div *ngIf="product" [class.active] = "showDetail" class="product-detail">
     <div>
         <button (click)="showLateralDetail()">close</button>
-        <app-img *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
-        <h2>{{ product.price }}</h2>
         <p>{{ product.title }}</p>
+        <swiper>
+        [slidesPerView]="3"
+        [spaceBetween]="50"
+        <ng-template swiperSlide *ngFor="let image of product.images"><img [src]="image" alt=""></ng-template>    
+      </swiper>
         <p>{{product.description}}</p>
+        <h2>{{ product.price }}</h2>
     </div>
 </div>

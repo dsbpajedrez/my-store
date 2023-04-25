@@ -3,6 +3,8 @@ import { Product } from 'src/app/models/product.model';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
 
+
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -34,6 +36,7 @@ export class ProductsComponent implements OnInit {
     this.date = new Date()
   }
   ngOnInit(): void {
+    
     this.productsService.getAllProducts()
       .subscribe({
         next : data =>{
