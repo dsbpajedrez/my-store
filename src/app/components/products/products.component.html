@@ -1,13 +1,17 @@
-<p>Total de productos: {{myShoppingCart.length}}</p>
-<p>Costo total : {{costoTotal}}</p>
-<p>Today: {{ date | date }}</p>
-<p>Cuenta regresiva: {{date | formatDistanceTime}}</p>
-<div class="products--grid">
-
-    <app-product
+<div  class="products--grid">
+    <app-product    
     *ngFor="let item of products" [product]="item"
+    (showDetailProduct) = "detailIdProduct($event)"
     (addedProduct)="onAddToShoppingCart($event)"
     >    
-    </app-product>
-   
+    </app-product>   
+</div>
+<div [class.active] = "showDetail" class="product-detail">
+    <div>
+        <button (click)="showLateralDetail()">close</button>
+        <app-img *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
+        <h2>{{ product.price }}</h2>
+        <p>{{ product.title }}</p>
+        <p>{{product.description}}</p>
+    </div>
 </div>

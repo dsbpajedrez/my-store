@@ -13,6 +13,19 @@ export class ProductsComponent implements OnInit {
   myShoppingCart : Product[] = [];
   costoTotal : number = 0;
   products : Product[] = []
+  product : Product ={
+    id : 0,
+    category : {
+      id: 0,
+      name : ''
+    },
+    description: '',
+    price : 0,
+    images : [],
+    title: ''
+  };
+  showDetail : boolean=false;
+  // detailProductId:number = 0;
   constructor(
     private storeService : StoreService,
     private productsService : ProductsService
@@ -24,19 +37,29 @@ export class ProductsComponent implements OnInit {
     this.productsService.getAllProducts()
       .subscribe({
         next : data =>{
-          this.products = data
-          console.log(data);
-          
+          this.products = data          
         },
-        error : error => console.log(error)
-        
+        error : error => console.log(error)        
       }
       )
   }
-  onAddToShoppingCart(producto : Product) {
-   
+  onAddToShoppingCart(producto : Product) {   
     this.storeService.addProduct(producto)  ;
     this.costoTotal =  this.storeService.getTotal();
+  }
+
+  showLateralDetail() {
+    this.showDetail = !this.showDetail;
+  }
+  detailIdProduct(id : number){
+   
+    this.productsService.getProduct(id)
+      .subscribe({
+        next : data =>{
+          this.product = data;
+          this.showLateralDetail()
+        }
+      })
   }
 
 }

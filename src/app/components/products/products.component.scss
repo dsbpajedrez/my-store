@@ -3,6 +3,20 @@
     flex-direction: column;
 }
 
+.product-detail {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transform: translate(100%);
+    transition: all ease-out 0.5s;
+    &.active {
+        transform: translateX(0);
+    }
+}
+
 //tablets
 @media  screen and (min-width:40em) and (max-width:63.9em) {
     .products--grid {

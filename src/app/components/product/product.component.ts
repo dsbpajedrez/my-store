@@ -9,16 +9,23 @@ export class ProductComponent {
 
   @Input() product : Product = {
     id : 0,
-    category : '',
+    category : {
+      id : 0,
+      name : ''
+    },
     description: '',
     price : 0,
-    image : '',
+    images : [],
     title: ''
 
   }
   @Output() addedProduct = new EventEmitter<Product>();
+  @Output() showDetailProduct = new EventEmitter<number>();
   onAddToCart = () => {
-    this.addedProduct.emit(this.product);   
-     
+    this.addedProduct.emit(this.product);      
+  }
+
+  toggleToShowDetail() {
+    this.showDetailProduct.emit(this.product.id);
   }
 }
