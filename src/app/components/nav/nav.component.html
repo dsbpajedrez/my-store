@@ -35,7 +35,8 @@
         </nav>
     </div>
     <div class="info">
-        <div class="account">david@hotmail.com</div>
+        <div *ngIf="sesionProfile"; else user  class="account">{{sesionProfile.email}}</div>
+        <div #user class="account">User</div>
         <div>
             <a href="">
                 <img src="../../../assets/svg/icon_shopping_cart.svg" alt="">
