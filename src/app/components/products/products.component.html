@@ -1,5 +1,4 @@
-<button (click)="createNewProduct()"> Crear</button>
-<button (click)="detailIdProduct(1234354)"> Detalle no encontrado</button>
+
 <div  class="products--grid" >
     <app-product    
     *ngFor="let item of products" [product]="item"
@@ -7,7 +6,7 @@
     (addedProduct)="onAddToShoppingCart($event)"
     >    
     </app-product> 
-    <button (click)="loadMore()">Cargar mas</button>
+    
 </div>
 <div *ngIf="product && statusDetail" [class.active] = "showDetail" class="product-detail">
     <div>

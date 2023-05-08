@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product, UpdateProductDTO, createProductDTO } from 'src/app/models/product.model';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -10,13 +10,11 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent  {
   date : Date;
-  offset !: number ;
-  limit !: number ;
   myShoppingCart : Product[] = [];
   costoTotal : number = 0;
-  products : Product[] = []
+  @Input() products : Product[] = []
   product : Product ={
     id : 0,
     category : {
@@ -37,12 +35,9 @@ export class ProductsComponent implements OnInit {
   ){
     this.myShoppingCart = this.storeService.getShoppingCart();
     this.date = new Date()
-    this.offset  = 0;
-    this.limit  = 10;
+
   }
-  ngOnInit(): void {
-    this.loadMore()
-  }
+
   onAddToShoppingCart(producto : Product) {   
     this.storeService.addProduct(producto)  ;
     this.costoTotal =  this.storeService.getTotal();
@@ -106,16 +101,6 @@ export class ProductsComponent implements OnInit {
           const productId = this.products.findIndex(item => item.id == this.product.id)
           this.products.splice(productId, 1);
           this.showDetail = false;
-        }
-      })
-  }
-
-  loadMore() {
-    this.productsService.getAllProducts(this.limit, this.offset)
-      .subscribe({
-        next : data => {
-          this.products = this.products.concat(data);         
-          this.offset += this.limit;
         }
       })
   }

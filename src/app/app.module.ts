@@ -13,6 +13,14 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { SwiperModule } from 'swiper/angular';
 import { TimeInterceptor } from './interceptors/time.interceptor';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { HomeComponent } from './pages/home/home/home.component';
+import { NotFoundComponent } from './pages/notFound/not-found/not-found.component';
+import { CategoryComponent } from './pages/category/category/category.component';
+import { MyCartComponent } from './pages/myCart/my-cart/my-cart.component';
+import { LoginComponent } from './pages/login/login/login.component';
+import { RegisterComponent } from './pages/register/register/register.component';
+import { RecoveryComponent } from './pages/recovery/recovery/recovery.component';
+import { ProfileComponent } from './pages/profile/profile/profile.component';
 
 
 @NgModule({
@@ -23,7 +31,15 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     ProductsComponent,
     NavComponent,
     FormatDistanceTimePipe,
-    HighlightDirective
+    HighlightDirective,
+    HomeComponent,
+    NotFoundComponent,
+    CategoryComponent,
+    MyCartComponent,
+    LoginComponent,
+    RegisterComponent,
+    RecoveryComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
